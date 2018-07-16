@@ -5,12 +5,12 @@ namespace CleanCode.PoorMethodSignatures
 {
     public class PoorMethodSignatures
     {
-        public void Run()
+        public void LogIn()
         {
             var userService = new UserService();
 
             var user = userService.GetUser("username", "password", true);
-            var anotherUser = userService.GetUser("username", null, false);
+            var anotherUser = userService.GetUser("username");
         }
     }
 
@@ -18,17 +18,17 @@ namespace CleanCode.PoorMethodSignatures
     {
         private UserDbContext _dbContext = new UserDbContext();
 
-        public User GetUser(string username, string password, bool login)
+        public User GetUser(string username, string password = null, bool login = false)
         {
-            return login ? Metodo1(username, password) : Metodo2(username);
+            return login ? GetUser(username, password) : GetUser(username);
         }
 
-        private User Metodo2(string username)
+        private User GetUser(string username)
         {
             return _dbContext.Users.SingleOrDefault(u => u.Username == username);
         }
 
-        private User Metodo1(string username, string password)
+        private User GetUser(string username, string password)
         {
             var user = _dbContext.Users.SingleOrDefault(u => u.Username == username && u.Password == password);
             if (user != null)
