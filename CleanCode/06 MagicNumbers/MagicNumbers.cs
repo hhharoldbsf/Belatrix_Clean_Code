@@ -3,26 +3,29 @@ namespace CleanCode.MagicNumbers
 {
     public class MagicNumbers
     {
+        const int DocumentApproved = 1;
+        const int DocumentRejected = 2;
+
         public void ApproveDocument(int status)
         {
-            if (status == 1)
+            if (status == DocumentApproved)
             {
                 // ...
             }
-            else if (status == 2)
+            else if (status == DocumentRejected)
             {
                 // ...
             }
         }
 
-        public void RejectDoument(string status)
+        public void RejectDoument(int status)
         {
             switch (status)
             {
-                case "1":
+                case DocumentApproved:
                     // ...
                     break;
-                case "2":
+                case DocumentRejected:
                     // ...
                     break;
             }
