@@ -9,7 +9,7 @@
 
         public override decimal CalculateBonus(decimal salary)
         {
-            return salary *.05M;
+            return salary *.01M;
         }
     }
 }
