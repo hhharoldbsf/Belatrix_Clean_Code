@@ -48,7 +48,8 @@
     <Compile Include="03 Liskov substitution\IEmployee.cs" />
     <Compile Include="03 Liskov substitution\LiskovSample.cs" />
     <Compile Include="04 Interface Segregation\IPrintTasks.cs" />
-    <Compile Include="05 Dependency Inversion\Emailer.cs" />
+    <Compile Include="05 Dependency Inversion\IEmailer.cs" />
+    <Compile Include="05 Dependency Inversion\IWeatherTracker.cs" />
     <Compile Include="05 Dependency Inversion\Phone.cs" />
     <Compile Include="05 Dependency Inversion\WeatherTracker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,17 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SOLID._05_Dependency_Inversion
 {
     public class Phone
     {
-        public String generateWeatherAlert(String weatherConditions)
+        private IWeatherTracker _weatherTracker;
+        public Phone(IWeatherTracker weatherTracker)
+        {            
+            _weatherTracker = weatherTracker;
+        }
+
+        public void setCurrentConditions(String currentConditions)
         {
-            String alert = "It is " + weatherConditions;
-            return alert;
+            if (currentConditions == "rainy")
+            {
+                String alert = _weatherTracker.generateWeatherAlert(currentConditions);
+                Console.WriteLine(alert);
+            }
+            if (currentConditions == "sunny")
+            {
+                String alert = _weatherTracker.generateWeatherAlert(currentConditions);
+                Console.WriteLine(alert);
+            }
         }
     }
 }
